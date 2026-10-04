@@ -1,0 +1,36 @@
+/* ═══════ 奇妙半糖梦境 · 移动端触屏优化层（仅无感修复，不改任何视觉） ═══════
+   原则：不新增可见元素、不改尺寸、不改布局——只修触屏真实缺陷。 */
+
+/* ── 1. 消除移动端 300ms 双击缩放延迟（点击更跟手，无视觉变化） ── */
+button{touch-action:manipulation}
+
+/* ── 2. 防止按钮长按弹出 iOS 文本选择/呼出菜单（无视觉变化） ── */
+.nav-item,.world-tab,.anime-tab,.r-chap,.hero-dot,.pg-btn,.featured-toggle,.modal-close,.video-modal-close,.comic-vol,.char-card,.song-item,.anime-item,.game-item{
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+
+/* ── 3. 弹窗安全区：宿主 iframe 内 env(safe-area-inset-top)=0，
+      原代码 45px 回退值造成大片幽灵留白；收紧为贴近顶部的合理值 ── */
+.reader-head{padding-top:max(env(safe-area-inset-top),14px)}
+.reader-close{top:max(env(safe-area-inset-top),14px)}
+.video-modal-close{top:max(env(safe-area-inset-top),12px)}
+.back-btn{top:max(env(safe-area-inset-top),12px)}
+#char-modal .modal-close{top:max(env(safe-area-inset-top),12px)}
+.game-fullscreen .back-btn{top:max(env(safe-area-inset-top),10px)}
+
+/* ── 4. 触屏按压反馈（仅按下的瞬间，替代桌面 hover 上浮） ── */
+@media (hover:none),(pointer:coarse){
+  .nav-item:active .nav-icon{transform:scale(.9)}
+  .char-card:active,.comic-vol:active:not(.is-locked),.song-item:active,.anime-item:active,.game-item:active,.featured-card:active{
+    transform:scale(.97);transition:transform .12s ease
+  }
+  .world-tab:active,.anime-tab:active{transform:scale(.95);transition:transform .12s ease}
+  .pg-btn:active:not(:disabled){transform:scale(.95)}
+  .promo-btn:active{transform:scale(.96)}
+  .modal-close:active,.video-modal-close:active,.back-btn:active{transform:scale(.9)}
+}
+
+/* ── 5. 系统级"减弱动态效果"偏好（无障碍，仅影响开启了该系统设置的用户） ── */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

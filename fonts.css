@@ -1,0 +1,17 @@
+/* 奇妙半糖梦境 · 自托管字体子集（覆盖页面实际用字，不含外链） */
+@font-face{
+  font-family:'ZCOOL XiaoWei';font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/ZCOOLXiaoWei.woff2) format('woff2');
+}
+@font-face{
+  font-family:'Noto Serif SC';font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/NotoSerifSC-400.woff2) format('woff2');
+}
+@font-face{
+  font-family:'Noto Serif SC';font-style:normal;font-weight:600;font-display:swap;
+  src:url(fonts/NotoSerifSC-600.woff2) format('woff2');
+}
+@font-face{
+  font-family:'Noto Serif SC';font-style:normal;font-weight:700;font-display:swap;
+  src:url(fonts/NotoSerifSC-700.woff2) format('woff2');
+}

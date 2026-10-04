@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+<title>奇妙半糖梦境 · 梦境画廊</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Noto Serif SC',serif;
+  background:linear-gradient(165deg,#ffeef4 0%,#ffe3ee 40%,#fbe4f2 75%,#f7e6f5 100%);
+  overflow-x:hidden;min-height:100dvh;position:relative;
+}
+/* 糖果飘落：仅在背景层，不遮挡图片 */
+#candies{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.candy{position:absolute;top:-10vh;animation:fall linear infinite;opacity:.9;font-size:26px;line-height:1}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg)}100%{transform:translateY(118vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.candy{animation:none;top:10vh;opacity:.5}}
+/* 返回按钮（仅符号） */
+.gback{position:fixed;top:max(env(safe-area-inset-top),14px);left:14px;z-index:60;width:42px;height:42px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;border:none;cursor:pointer;outline:none;background:rgba(255,255,255,.78);box-shadow:0 3px 12px rgba(216,130,160,.28);-webkit-tap-highlight-color:transparent;transition:transform .18s}
+.gback:hover{transform:translateY(-1px)}
+.gback:active{transform:scale(.92)}
+.gback::before{content:"";width:11px;height:11px;border-left:2.5px solid #a4506e;border-bottom:2.5px solid #a4506e;transform:rotate(45deg) translate(1px,-1px);margin-right:6px}
+.g-head{text-align:center;padding:max(env(safe-area-inset-top),26px) 16px 6px;position:relative;z-index:2}
+.g-head h1{font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,4.5vw,1.9rem);color:#a4506e;letter-spacing:.3em;text-indent:.3em;text-shadow:0 1px 0 #fff}
+.g-head p{font-size:.72rem;color:#c08ca4;letter-spacing:.22em;margin-top:4px}
+#wall{position:relative;z-index:2;padding-bottom:60px;max-width:560px;margin:0 auto}
+.clothesline{position:relative;padding:6px 0 30px}
+.rope-row{position:relative}
+.rope{position:absolute;left:2%;right:2%;top:15.5px;height:3px;background:linear-gradient(180deg,#e7b98c,#d8a678 55%,#c9986a);border-radius:3px;box-shadow:0 2px 4px rgba(160,110,70,.25);z-index:1}
+.polaroid-row{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:clamp(8px,2.2vw,22px);padding:5px clamp(8px,3vw,40px) 6px;z-index:2}
+.polaroid{background:#fff;padding:8px 8px 26px;border-radius:3px;box-shadow:0 4px 14px rgba(150,90,120,.22),0 1px 3px rgba(120,70,90,.18);transform:rotate(var(--tilt,0deg));transition:transform .28s,box-shadow .28s;width:calc(25% - 6px);min-width:0;position:relative;cursor:pointer}
+.polaroid:nth-of-type(4n+1){--tilt:-2.6deg;margin-top:12px}
+.polaroid:nth-of-type(4n+2){--tilt:2.2deg;margin-top:12px}
+.polaroid:nth-of-type(4n+3){--tilt:-1.4deg;margin-top:12px}
+.polaroid:nth-of-type(4n){--tilt:3deg;margin-top:12px}
+.polaroid:hover{transform:rotate(0deg) translateY(-5px) scale(1.03);box-shadow:0 12px 26px rgba(150,90,120,.32);z-index:5}
+.polaroid .ph{width:100%;overflow:hidden;background:#fdf3f7;display:flex;align-items:center;justify-content:center}
+.polaroid .ph img{width:100%;height:auto;display:block}
+.polaroid .ph-sprite{width:100%;display:block;background-repeat:no-repeat}
+/* 贴纸（不同颜色）替代夹子，贴在照片顶部中央 */
+.tape{position:absolute;top:9px;left:0;width:72px;height:26px;z-index:4;pointer-events:none;transform-origin:center center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
+.tape svg{width:100%;height:100%;display:block}
+/* lightbox */
+#lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(40,20,30,.82);backdrop-filter:blur(6px);padding:24px}
+#lightbox.is-open{display:flex}
+#lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;box-shadow:0 16px 50px rgba(0,0,0,.5);background:#fff;padding:6px}
+.lb-close{position:fixed;top:max(env(safe-area-inset-top),16px);right:16px;z-index:101;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:1.3rem;color:#fff;line-height:1;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center}
+.lb-close:hover{background:rgba(255,255,255,.4)}
+audio{display:none}
+@media (max-width:640px){
+  .g-head h1{font-size:1.25rem}
+  .polaroid-row{gap:6px;padding:3px 10px 4px}
+  .polaroid{width:calc(25% - 5px);padding:5px 5px 16px}
+  .polaroid:nth-of-type(4n+2){margin-top:8px}
+  .polaroid:nth-of-type(4n+1){margin-top:8px}
+  .polaroid:nth-of-type(4n+3){margin-top:8px}
+  .polaroid:nth-of-type(4n){margin-top:8px}
+  .rope{top:10px;height:2px}
+  .tape{width:50px;height:17px;top:-2px}
+  .gback{top:max(env(safe-area-inset-top),12px);left:10px}
+  .candy{font-size:18px}
+}
+@media (max-width:400px){.polaroid{padding:4px 4px 12px}.polaroid-row{gap:4px}}
+</style>
+</head>
+<body>
+<button class="gback" id="back" aria-label="返回"></button>
+<div id="candies" aria-hidden="true"></div>
+<header class="g-head"><h1>梦境画廊</h1><p>— The Wonder Half-Sugar Dreamland —</p></header>
+<main id="wall"></main>
+<audio id="gbgm" loop preload="auto"></audio>
+<div id="lightbox"><img id="lb-img" src="" alt=""><button class="lb-close" id="lb-close" aria-label="关闭">✕</button></div>
+<script src="gallery-bgm-data.js?v=35rk" type="text/javascript"></script>
+<script src="topic-sdk.js?v=35rk" type="text/javascript"></script>
+<script>
+document.getElementById('back').addEventListener('click', function () {
+  /* 固定回同目录首页（保持当前版本目录），不用 history.back() 以免跳出嵌入层落到旧版本话题页 */
+  location.href = 'index.html';
+});
+/* 宿主物理返回键：回到首页（同版本），不退出嵌入层 */
+window.addEventListener('neta:back', function (e) {
+  e.preventDefault();
+  location.href = 'index.html';
+});
+
+/* 行顺序：原第五排→第一排，原第四排（第三张已换）→第五排 */
+var AW=[16000, 1660][0], AH=[16000, 1660][1];
+var GAL_ATLAS={size:[16000, 1660],map:{"g16.webp":{"x":0,"y":0,"w":640,"h":822},"g17.webp":{"x":1000,"y":0,"w":640,"h":822},"g18.webp":{"x":2000,"y":0,"w":640,"h":822},"g19.webp":{"x":3000,"y":0,"w":640,"h":822},"g21.webp":{"x":4000,"y":0,"w":1000,"h":806},"g22.webp":{"x":5000,"y":0,"w":1000,"h":806},"g23.webp":{"x":6000,"y":0,"w":1000,"h":558},"g24.webp":{"x":7000,"y":0,"w":1000,"h":558},"g31.webp":{"x":8000,"y":0,"w":1000,"h":558},"g32.webp":{"x":9000,"y":0,"w":1000,"h":558},"g34.webp":{"x":10000,"y":0,"w":1000,"h":562},"g35.webp":{"x":11000,"y":0,"w":1000,"h":558},"g41.webp":{"x":12000,"y":0,"w":1000,"h":562},"g42.webp":{"x":13000,"y":0,"w":1000,"h":562},"g43.webp":{"x":14000,"y":0,"w":1000,"h":562},"g44.webp":{"x":15000,"y":0,"w":1000,"h":562},"g01.webp":{"x":0,"y":830,"w":640,"h":480},"g02.webp":{"x":1000,"y":830,"w":640,"h":494},"g03.webp":{"x":2000,"y":830,"w":640,"h":480},"g04.webp":{"x":3000,"y":830,"w":640,"h":494},"g05.webp":{"x":4000,"y":830,"w":640,"h":498},"g06.webp":{"x":5000,"y":830,"w":640,"h":500},"g07.webp":{"x":6000,"y":830,"w":640,"h":828},"g08.webp":{"x":7000,"y":830,"w":640,"h":828},"g09.webp":{"x":8000,"y":830,"w":640,"h":640},"g10.webp":{"x":9000,"y":830,"w":640,"h":640},"g11.webp":{"x":10000,"y":830,"w":640,"h":640},"g12.webp":{"x":11000,"y":830,"w":640,"h":640},"g13.webp":{"x":12000,"y":830,"w":640,"h":640},"g14.webp":{"x":13000,"y":830,"w":640,"h":640},"g20.webp":{"x":14000,"y":830,"w":640,"h":640},"g15.webp":{"x":15000,"y":830,"w":640,"h":640}}};
+var ROWS = [
+  ['g16.webp','g17.webp','g18.webp','g19.webp'],
+  ['g21.webp','g22.webp','g23.webp','g24.webp'],
+  ['g31.webp','g32.webp','g34.webp','g35.webp'],
+  ['g41.webp','g42.webp','g43.webp','g44.webp'],
+  ['g01.webp','g02.webp','g03.webp','g04.webp'],
+  ['g05.webp','g06.webp','g07.webp','g08.webp'],
+  ['g09.webp','g10.webp','g11.webp','g12.webp'],
+  ['g13.webp','g14.webp','g20.webp','g15.webp']
+];
+
+/* 不同颜色贴纸（圆角星形） */
+var TAPE_COLORS = ['#f6a8c0','#a8c8f6','#f0c878','#a8e0c8','#c8a8e0','#f6b8a0','#b8e0a8','#e0a8c8','#ffd0e0','#bcd0ff'];
+function tapeSVG(color){
+  var w=76,h=24,step=4;
+  var top=[],bot=[];
+  for(var x=0;x<=w;x+=step){ top.push(x+','+( (x/step)%2 ? 3:7 )); }
+  for(var x=w;x>=0;x-=step){ bot.push(x+','+( (x/step)%2 ? 21:17 )); }
+  var d='M'+top.join(' L')+' L'+bot.join(' L')+' Z';
+  return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none">'+
+    '<path d="'+d+'" fill="'+color+'" opacity=".82" stroke="rgba(80,40,60,.18)" stroke-width="0.5"/>'+
+    '<line x1="2" y1="12" x2="'+(w-2)+'" y2="12" stroke="rgba(255,255,255,.4)" stroke-width="1.2" stroke-dasharray="4 4"/>'+
+    '</svg>';
+}
+function stickerSVG(color){
+  return '<svg viewBox="0 0 30 30"><path d="M15 1.5 C20 1.5 28.5 6 28.5 15 C28.5 24 20 28.5 15 28.5 C10 28.5 1.5 24 1.5 15 C1.5 6 10 1.5 15 1.5 Z" fill="'+color+'" stroke="#fff" stroke-width="2.5"/><circle cx="11" cy="11" r="3.5" fill="rgba(255,255,255,.55)"/></svg>';
+}
+
+var CANDIES = ['🍬','🍭',' chocolates'.trim()]; 
+/* 用糖果 emoji 集合 */
+var CANDY = ['🍬','🍭'];
+
+(function buildWall(){
+  var wall = document.getElementById('wall');
+  var si = 0;
+  ROWS.forEach(function (row, ri) {
+    var line = document.createElement('section');
+    line.className = 'clothesline rope-row';
+    var rope = document.createElement('div'); rope.className = 'rope';
+    var rowEl = document.createElement('div'); rowEl.className = 'polaroid-row';
+    row.forEach(function (src) {
+      var fig = document.createElement('figure');
+      fig.className = 'polaroid';
+      var st = document.createElement('div'); st.className = 'tape';
+      st.style.setProperty('--trot', ((Math.random()*24-12).toFixed(1)) + 'deg');
+      st.innerHTML = tapeSVG(TAPE_COLORS[si % TAPE_COLORS.length]); si++;
+      st.dataset.tape = '1';
+      var ph = document.createElement('span'); ph.className = 'ph';
+      var sinfo = GAL_ATLAS.map[src];
+      var im;
+      if (sinfo) {
+        /* 画廊图集裁剪（32→1）：百分比背景定位，自适应容器宽度 */
+        im = document.createElement('span');
+        im.className = 'ph-sprite';
+        var bw = (AW / sinfo.w * 100), bh = (AH / sinfo.h * 100);
+        var px = sinfo.w < AW ? -(sinfo.x / (AW - sinfo.w) * 100) : 0;
+        var py = sinfo.h < AH ? -(sinfo.y / (AH - sinfo.h) * 100) : 0;
+        im.style.backgroundImage = 'url(assets/atlas-gallery.webp)';
+        im.style.backgroundSize = bw + '% ' + bh + '%';
+        im.style.backgroundPosition = px + '% ' + py + '%';
+        im.style.display = 'block';
+        im.style.width = '100%';
+        im.style.aspectRatio = sinfo.w + ' / ' + sinfo.h;
+        im.setAttribute('role','img'); im.setAttribute('aria-label','梦境画廊照片');
+        im.addEventListener('click', function () { openLightbox(null, src); });
+      } else {
+        im = document.createElement('img');
+        im.src = 'assets/' + src; im.alt = '梦境画廊照片'; im.loading = (ri === 0 ? 'eager' : 'lazy');
+        im.addEventListener('click', function () { openLightbox(im.src); });
+      }
+      ph.appendChild(im);
+      fig.appendChild(ph);
+      fig.appendChild(st);            /* 胶带贴在照片上，随照片一起挂到行 */
+      rowEl.appendChild(fig);
+    });
+    line.appendChild(rope); line.appendChild(rowEl);
+    wall.appendChild(line);
+  });
+  /* 胶带压在绳线上：居中于每张照片、垂直覆盖绳线 */
+  function placeTapes() {
+    document.querySelectorAll('.rope-row').forEach(function (line) {
+      var rope = line.querySelector('.rope');
+      var ropeR = rope.getBoundingClientRect();
+      line.querySelectorAll('.polaroid').forEach(function (fig) {
+        var tape = fig.__tape;
+        if (!tape) return;
+        var fR = fig.getBoundingClientRect();
+        var w = tape.offsetWidth, hh = tape.offsetHeight;
+        /* 贴在照片顶部中央（压住照片上缘），与绳线视觉重合 */
+        tape.style.left = (fR.width / 2 - w / 2) + 'px';
+        tape.style.top = (-hh / 2) + 'px';
+      });
+    });
+  }
+  /* bind tapes to figs（胶带已在照片内部） */
+  document.querySelectorAll('.rope-row .polaroid').forEach(function (fig) {
+    var tape = fig.querySelector('.tape');
+    if (tape) fig.__tape = tape;
+  });
+  requestAnimationFrame(placeTapes);
+  window.addEventListener('resize', placeTapes);
+  window.addEventListener('scroll', placeTapes, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeTapes);
+  /* 持续校正直到所有图片加载完成（图片逐张加载会不断改变布局） */
+  var settle = setInterval(placeTapes, 400);
+  var allImgs = document.querySelectorAll('.polaroid img');
+  var done = 0;
+  allImgs.forEach(function (im) {
+    function one() { done++; if (done >= allImgs.length) { placeTapes(); clearInterval(settle); setTimeout(placeTapes, 300); } }
+    if (im.complete) one();
+    else { im.addEventListener('load', one, { once: true }); im.addEventListener('error', one, { once: true }); }
+  });
+  setTimeout(function(){ clearInterval(settle); }, 20000); /* 兜底 */
+  setTimeout(placeTapes, 600);
+  /* 每张图加载完成后重排胶带（否则晚加载的图改变行高，后续行胶带会悬浮/错位） */
+  document.querySelectorAll('.polaroid img').forEach(function (im) {
+    if (!im.complete) im.addEventListener('load', placeTapes, { once: true });
+    if (!im.complete) im.addEventListener('error', placeTapes, { once: true });
+  });
+  setTimeout(placeTapes, 1500);
+  setTimeout(placeTapes, 3000);
+})();
+
+/* 糖果飘落（仅背景，不遮挡） */
+(function candies(){
+  var wrap = document.getElementById('candies');
+  var n = window.innerWidth < 640 ? 10 : 16;
+  for (var i = 0; i < n; i++) {
+    var d = document.createElement('div');
+    d.className = 'candy';
+    d.textContent = CANDY[i % CANDY.length];
+    d.style.left = (Math.random() * 96) + 'vw';
+    d.style.animationDuration = (7 + Math.random() * 8) + 's';
+    d.style.animationDelay = (-Math.random() * 12) + 's';
+    d.style.transform = 'scale(' + (0.6 + Math.random() * 0.8) + ')';
+    wrap.appendChild(d);
+  }
+})();
+
+/* lightbox */
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lb-img');
+function openLightbox(src, atlasName){
+  if (atlasName && GAL_ATLAS.map[atlasName]) { var i2=GAL_ATLAS.map[atlasName]; var box=document.getElementById('lb-img'); box.src=''; box.style.backgroundImage='url(assets/atlas-gallery.webp)'; box.style.backgroundSize=(AW/i2.w*100)+'% '+(AH/i2.h*100)+'%'; box.style.backgroundPosition=(-(i2.x/(AW-i2.w)*100))+'% '+(-(i2.y/(AH-i2.h)*100))+'%'; box.style.width=Math.min(i2.w, Math.round(window.innerWidth*0.9))+'px'; box.style.height='auto'; box.style.aspectRatio=i2.w+' / '+i2.h; box.style.display='block'; document.getElementById('lightbox').classList.add('is-open'); return; } lbImg.src = src; lb.classList.add('is-open'); }
+function closeLightbox(){ lb.classList.remove('is-open'); lbImg.src=''; }
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+/* 自动播放音乐（BGM 以 data-URI 内嵌，绕过 publish 端点禁用 .mp3） */
+var gbgm = document.getElementById('gbgm');
+if (window.GALLERY_BGM_URI) gbgm.src = window.GALLERY_BGM_URI;
+function tryBgm(){ if (!gbgm.src) return; var p = gbgm.play(); if (p && p.catch) p.catch(function () {
+  function resume(){ gbgm.play().catch(function(){}); document.removeEventListener('pointerdown',resume,true); document.removeEventListener('touchstart',resume,true); }
+  document.addEventListener('pointerdown',resume,true);
+  document.addEventListener('touchstart',resume,{passive:true});
+}); }
+tryBgm();
+</script>
+</body>
+</html>

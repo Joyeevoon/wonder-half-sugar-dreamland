@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#fff6ee">
+<meta name="format-detection" content="telephone=no">
+<title>奇妙半糖梦境 · The Wonder Half-Sugar Dreamland</title>
+<link rel="preload" href="fonts/ZCOOLXiaoWei.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css?v=35rk">
+<link rel="stylesheet" href="style.css?v=35rk">
+<link rel="stylesheet" href="mobile.css?v=35rk">
+</head>
+<body>
+<div id="stage">
+<header id="hero">
+<div class="hero-slides">
+<img src="assets/hero-1.webp?v=35rk" alt="奇妙半糖梦境" class="hero-slide is-on">
+<img src="assets/hero-2.webp?v=35rk" alt="奇妙半糖梦境" class="hero-slide" loading="lazy">
+</div>
+<div class="hero-veil"></div>
+<div class="hero-dots" role="tablist" aria-label="封面切换">
+<button class="hero-dot is-on" type="button" aria-label="封面 1"></button>
+<button class="hero-dot" type="button" aria-label="封面 2"></button>
+</div>
+<div class="hero-title">
+<h1>奇妙半糖梦境</h1>
+<p>The Wonder Half-Sugar Dreamland</p>
+<div class="title-flourish"><span>❖</span><i></i><span>✦</span><i></i><span>❖</span></div>
+</div>
+</header>
+<nav id="nikki-nav">
+<div class="nav-bar">
+<button class="nav-item" data-panel="world">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="8.2"/>
+<path d="M12 5.2 L14.4 12 L12 18.8 L9.6 12 Z"/>
+<circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+</svg>
+</span>
+<span class="nav-label">世界观</span>
+</button>
+<button class="nav-item" data-panel="comic">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 6.5 C10.5 5 8.2 4.5 5.5 4.8 C4.6 4.9 4 5.4 4 6.2 V17.4 C4 18.2 4.6 18.7 5.5 18.6 C8.2 18.4 10.5 18.9 12 20.2 C13.5 18.9 15.8 18.4 18.5 18.6 C19.4 18.7 20 18.2 20 17.4 V6.2 C20 5.4 19.4 4.9 18.5 4.8 C15.8 4.5 13.5 5 12 6.5 Z"/>
+<path d="M12 6.5 V20"/>
+<path d="M6.5 8.5 C7.8 8.4 9 8.6 10 9.1"/><path d="M6.5 11.5 C7.8 11.4 9 11.6 10 12.1"/>
+<path d="M17.5 8.5 C16.2 8.4 15 8.6 14 9.1"/><path d="M17.5 11.5 C16.2 11.4 15 11.6 14 12.1"/>
+</svg>
+</span>
+<span class="nav-label">漫画</span>
+</button>
+<button class="nav-item" data-panel="anime">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<rect x="2" y="6" width="20" height="12" rx="2"/>
+<polygon points="10,9 10,15 16,12" fill="currentColor" stroke="none"/>
+</svg>
+</span>
+<span class="nav-label">动画</span>
+</button>
+<button class="nav-item" data-panel="song">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 18V6.2l9-1.9v11.4"/>
+<ellipse cx="6.6" cy="18.1" rx="2.5" ry="2"/>
+<ellipse cx="15.6" cy="15.9" rx="2.5" ry="2"/>
+</svg>
+</span>
+<span class="nav-label">歌单</span>
+</button>
+<button class="nav-item" data-panel="character">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="7.8" r="3.6"/>
+<path d="M5.2 20 C5.8 15.6 8.4 13.6 12 13.6 C15.6 13.6 18.2 15.6 18.8 20"/>
+</svg>
+</span>
+<span class="nav-label">人物</span>
+</button>
+<button class="nav-item" data-panel="game">
+<span class="nav-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 10h4M8 8v4M15 9.5h0M17.5 11.5h0"/>
+<rect x="2" y="7" width="20" height="10" rx="5"/>
+</svg>
+</span>
+<span class="nav-label">游戏</span>
+</button>
+</div>
+</nav>
+<main id="panel-area">
+<div class="hint" id="idle-hint">
+<img class="hint-sundae" src="assets/hint-sundae.webp?v=35rk" alt="半糖至代至至至至至立绘" draggable="false">
+<span class="hint-deco">✦ ─── ❖ ─── ✦</span>
+<p>轻触上方甜品徽章，开启半糖世界的一角</p>
+</div>
+<section class="panel" id="panel-world">
+<div class="panel-scroll">
+<div class="world-tabs">
+<button class="world-tab wt-lore is-active" data-wtab="lore"><span class="wt-txt">世界观</span></button>
+<button class="world-tab wt-time" data-wtab="timeline"><span class="wt-txt">时间线</span></button>
+<button class="world-tab wt-map" data-wtab="map"><span class="wt-txt">地图</span></button>
+<button class="world-tab wt-prop" data-wtab="prop"><span class="wt-txt">道具</span></button>
+<button class="world-tab wt-prop" data-wtab="festival"><span class="wt-txt">节日</span></button>
+<button class="world-tab wt-theme" data-wtab="theme"><span class="wt-txt">主题曲</span></button>
+</div>
+<div class="world-pane" data-wpane="lore">
+<div class="pane-frame">
+<div class="lore-card intro-card">
+<h2><span class="h-orn">❖</span> 世界起源 · 半糖稳态 <span class="h-orn">❖</span></h2>
+<p>奇妙半糖梦境是一个悬浮在<b>梦境与现实缝隙</b>中的甜品大陆。它源于一颗名为<b>「全糖之心」</b>的星核坠落——裂开后的世界从此被锁定在<b>「半糖」</b>状态：甜度总量固定且不可再生。过高，万物融化成无个性的糖水；过低，硬化碎裂为灰白粉末。唯有维持精妙的半糖稳态，世界才能延续。</p>
+<p>环形大陆中央横亘着不断扩张的<b>糖心裂谷</b>，滚烫的液态梦境从中渗出，将世界划为两大阵营：东部的<b>蜜糖联邦</b>信奉分享与共鸣，相信快乐的情绪能通过「味觉共鸣」转化为新的甜度；西部的<b>苦艾帝国</b>崇尚苦炼与集中，严苛执行甜度配额制。</p>
+<div class="crisis-band">
+<span class="crisis-tag">⚠ 当前危机</span>
+<p>甜度枯萎——联邦糖霜逐年减少，帝国矿脉渗出酸味，裂谷加速吞噬土地。一份匿名信将四位主角引向<b>七月三十日的裂谷之约</b>。他们将在那里发现：全糖之心从未真正碎裂，它把自己分成四份藏进四人体内。重组的唯一方式不是交出碎片，而是——<em>每个人都必须承认自己不完整，却依然完整。</em></p>
+</div>
+</div>
+<h2 class="sec-title"><span class="h-orn">❖</span> 阵营 <span class="h-orn">❖</span></h2>
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>蜜糖联邦 —— 甜度共和</h2>
+<figure class="map-frame"><img src="assets/faction-honey.webp?v=35rk" alt="蜜糖联邦" loading="lazy"></figure>
+</div>
+<div class="faction-text">
+<h3>核心理念</h3>
+<p>"甜度像笑容，分享给越多的人，总数就越多。"</p>
+<p>虽然物理定律说甜度固定，但联邦认为"体验"可以创造新的甜度——一个布丁在果冻海上快乐地漂一小时，他的快乐会通过味觉共鸣转化为环境甜度，这部分增量虽然微小，但积少成多。</p>
+<h3>治国方式</h3>
+<p>松散的议会制。没有皇帝，没有独裁官，由七个"味觉大区"各派两名代表组成议会，重大决策需六票以上通过。缺点是决策极慢——关于"是否向帝国派遣外交使团"这个议题，议会辩论了三年还没出结果。</p>
+<h3>联邦的黑暗面</h3>
+<p>· 表面歌颂自由，但议会暗中监视"甜度低效者"——那些甜度光环暗淡、消耗大于产出的居民会被"建议"搬到边境区去住。</p>
+<p>· 自由是有代价的：联邦的艺术繁荣，但每年因为"过度情绪消耗"导致甜度枯竭而消失的居民数量，是帝国的三倍。</p>
+</div>
+</div>
+<div class="lore-card faction-card wormwood">
+<div class="faction-head">
+<h2>苦艾帝国 —— 甜度集中制</h2>
+<figure class="map-frame dark-frame"><img src="assets/faction-wormwood.webp?v=35rk" alt="苦艾帝国" loading="lazy"></figure>
+</div>
+<div class="faction-text">
+<h3>核心理念</h3>
+<p>"甜度不是天赋的，是挣来的。没有经历苦的甜是虚弱的，会在一夜之间消散。"</p>
+<p>他们认为联邦的那种"分享式甜度"就像在沙地上盖房子，看起来漂亮，但一场酸雨就没了。只有通过深焙、浓缩、提纯，将甜度锻造成"结晶级"的坚硬形态，才能抵御时间的侵蚀。</p>
+<h3>治国方式</h3>
+<p>等级森严的贵族议会制，顶端是"大焙炼师"（目前空缺，由七位首席调香师代行），往下是贵族、骑士、调香师、工匠、平民。帝国强调纪律，"甜度产出"是每个人的核心考核指标——一个平民如果连续两年甜度产出低于标准，会被降级为"糖工"（从事最重的开采劳动）。</p>
+<h3>帝国的黑暗面</h3>
+<p>· "甜度配额制"：每个平民每月必须上缴固定量的梦境结晶，交不够的会被送往灰末荒原"体验苦味教育"——去了的基本回不来。</p>
+<p>· 对知识的管理：《苦转甜》这类书被禁止阅读是因为它挑战了帝国的"苦→焙→甜"正统理念。帝国不允许任何人质疑"只有我们的方法才是科学的"。</p>
+</div>
+</div>
+<div class="lore-card faction-card rift-card">
+<div class="faction-head">
+<h2>两大阵营的矛盾</h2>
+</div>
+<div class="faction-text">
+<p>本质上，两套逻辑在底层是不兼容的：</p>
+<p>· 联邦认为"帝国是在囤积世界的甜度，像守财奴把粮食锁在仓库里等它发霉"。</p>
+<p>· 帝国认为"联邦是在挥霍世界的甜度，像败家子把祖产每天撒一把给路人"。</p>
+<p>双方都拿不出"绝对证据"证明自己是对的，因为半糖梦境的世界从裂缝那天起就没有过"对照组"——没人知道"全糖"到底应该是什么样。</p>
+<p>所以，他们争论的根本不是一个事实问题，而是一个信念问题。而这种争论，战争是唯一（表面上）的终局裁判。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="world-pane" data-wpane="timeline" hidden>
+<div class="pane-frame">
+<div class="lore-card timeline-card">
+<h2><span class="h-orn">◆</span> 时间线 <span class="h-orn">◆</span></h2>
+<div class="timeline">
+<div class="tl-item tl-past">
+<div class="tl-dot"></div>
+<div class="tl-body">
+<span class="tl-era">已发生 · 107年前</span>
+<h3>糖心坠落</h3>
+<p>全糖之心突然碎裂，一半沉入裂谷，一半化为碎片散落世界。崩解的能量将原本统一的大陆撕裂为两半，甜度从此进入"半糖"稳态。事件原因成谜，两大阵营各执一词：联邦认为是帝国过度开采，帝国则坚称是联邦的散漫导致糖心碎裂。</p>
+</div>
+</div>
+<div class="tl-item tl-past">
+<div class="tl-dot"></div>
+<div class="tl-body">
+<span class="tl-era">已发生 · 53年前</span>
+<h3>焦糖和约</h3>
+<p>两大阵营签订互不侵犯条约，划定裂谷为中立区。但双方都在暗中储备甜度，条约名存实亡。</p>
+</div>
+</div>
+<div class="tl-item tl-now">
+<div class="tl-dot"></div>
+<div class="tl-body">
+<span class="tl-era">当前 · 正在发生</span>
+<h3>甜度枯萎</h3>
+<p>联邦的糖霜雪逐年减少，帝国的深焙矿脉开始渗出酸味杂质。裂谷加速扩张，已吞没了三个边缘小镇。预言称：当裂谷吞噬一半土地时，"半糖梦境"将彻底凝固为无味的结晶世界。</p>
+</div>
+</div>
+<div class="tl-item tl-future">
+<div class="tl-dot"></div>
+<div class="tl-body">
+<span class="tl-era">即将发生</span>
+<h3>裂谷远征</h3>
+<p>太妃糖伯爵计划组建"深掘队"进入裂谷中心寻找全糖之心。联邦议会认为这是宣战行为，布丁和霜糖被派往帝国进行最后的斡旋——而黑巧甜心派必须在帝国与联邦之间选择方向。</p>
+</div>
+</div>
+<div class="tl-item tl-hidden">
+<div class="tl-dot"></div>
+<div class="tl-body">
+<span class="tl-era">隐藏事件</span>
+<h3>糖心碎片的重聚</h3>
+<p>布丁体内的碎片、芝士蛋糕酱体内的糖魂、以及散落在世界各处的碎块正在彼此共鸣。当它们靠近时，持有者会出现"味觉共感"——尝到对方的情感与记忆。这一过程可能让四人（布丁、霜糖、黑巧甜心派、太妃糖伯爵）被迫组队，也可能让他们在误解中走向敌对。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="world-pane" data-wpane="map" hidden>
+<div class="pane-frame">
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>蜜糖联邦 <small>Honey Federation</small></h2>
+<p class="faction-climate">气候：温润 · 明亮 · 多风。全年长日照，很少阴天。夜间全境发出微弱暖光——土地里的糖分白天吸收阳光后缓慢释放。</p>
+</div>
+<figure class="map-frame">
+<img src="assets/federation.webp?v=35rk" alt="蜜糖联邦地图" loading="lazy">
+<figcaption>蜜糖联邦全域地图</figcaption>
+</figure>
+<div class="region-grid">
+<article class="region">
+<h3>① 奶霜高原 <small>Frosting Plateau</small></h3>
+<p>海拔约两千米，覆盖蓬松白霜如永不化的雪，踩上去「沙沙」作响，舔一口是淡淡香草炼乳味。高原中心矗立冰糖镂空高塔<b>「季风编织机」</b>，霜糖编织者旋转搅拌空气，把地下梦境水分与高空冷糖浆织成糖霜雪，飘向全境。糖霜雪若连续三天不降，联邦土地便会干裂——故此地被视为联邦的<b>心脏</b>。</p>
+</article>
+<article class="region">
+<h3>② 果冻海 <small>Jelly Sea</small></h3>
+<p>浅粉到淡蓝渐变的半透明弹性海洋，薄脆饼干船一颠一颠地弹跳前行。海面下五米潜伏<b>「酸味暗流」</b>——冷不丁窜出的柠檬酸流会腐蚀饼干船底，船员须以蜂蜜涂底防酸。最深处的<b>「回音洞窟」</b>：对洞口喊出你最遗憾的事，三天后回音会告诉你「如果当初选另一条路会怎样」——但没人敢试，听到回音的人据说都会后悔终身。</p>
+</article>
+<article class="region">
+<h3>③ 烤布丁丘陵 <small>Pudding Hills</small></h3>
+<p>连绵金棕山丘，表面焦脆硬壳，敲开后是温热柔软的布丁内层。每年春天丘陵自然「出炉」一批新布丁——像鸡蛋一样从土里冒出，三天后睁眼成为新居民。角色<b>布丁</b>便诞生于此，他是这片丘陵唯一头顶焦糖布丁的人。</p>
+</article>
+<article class="region">
+<h3>④ 棉花糖镇 <small>Marshmallow Town</small></h3>
+<p>联邦最大聚居地，彩色棉花糖建筑以糖浆粘合，随风轻微变形却不会倒塌——棉花糖有记忆性。镇中心<b>「甜度交易所」</b>里，居民以梦境结晶换取生活用品；墙上巨大的<b>甜度表</b>实时显示联邦平均甜度指数——最近三年，一直在缓慢下降。</p>
+</article>
+</div>
+</div>
+<div class="lore-card faction-card wormwood">
+<div class="faction-head">
+<h2>苦艾帝国 <small>Wormwood Empire</small></h2>
+<p class="faction-climate">气候：阴沉 · 稳定 · 干燥。终年被可可粉云雾笼罩，阳光穿透云层后变成灰金色。整个帝国像一块巨大的、冷却中的黑巧克力。</p>
+</div>
+<figure class="map-frame dark-frame">
+<img src="assets/empire.webp?v=35rk" alt="苦艾帝国地图" loading="lazy">
+<figcaption>苦艾帝国全域地图</figcaption>
+</figure>
+<div class="region-grid">
+<article class="region">
+<h3>① 咖啡山脉 <small>Dark Chocolate Mountains</small></h3>
+<p>高达三千米，山体为硬度近岩石的纯咖啡树林，须以特制<b>「糖锯」</b>开采。矿道深处埋藏<b>「深焙梦境矿」</b>——经地下高温高压浓缩的苦甜结晶，能量密度是普通结晶的五倍。但每挖出一吨，周围巧克力便会<b>「白巧化」</b>：失去甜度、碎成粉。帝国扩张越快，白巧化的无人区就越大。</p>
+</article>
+<article class="region">
+<h3>② 太妃沼泽 <small>Toffee Swamp</small></h3>
+<p>深琥珀色的黏稠沼泽，看似固体，踩上去缓缓下陷。太妃糖浆延展性极强，可拉成细丝制成帝国的通信线缆与武器。沼泽底沉睡着<b>「远古糖蜜」</b>——全糖之心坠落前就存在的超浓缩甜液，一滴可令整条街甜上十年。帝国每年限量抽取，是战略储备的核心。</p>
+</article>
+<article class="region">
+<h3>③ 黑巧蛋糕城 <small>Cheesecake Citadel</small></h3>
+<p>帝国首都，远看像一块切开的黑森林蛋糕，共七层，越往上风味越浓。底层平民区、三层焙炼院、五层帝国议会、七层<b>「观星台」</b>——帝国唯一能穿过可可云看见星空的地方。城墙涂有<b>「苦味釉」</b>，苦香弥散，联邦的甜点居民闻到会头晕不适。</p>
+</article>
+<article class="region">
+<h3>④ 灰末荒原 <small>Ash Wasteland</small></h3>
+<p>帝国最西端的恐惧之地。曾是富饶的太妃平原，百年开采后甜度彻底耗尽，地面化为灰白粉末，寸草不生。偶见半埋土中的无色糖果屋残骸——那是来不及撤离的居民的最终形态。官方称之为「必要的牺牲带」；民间却传说荒原深处仍有活的甜点，靠互相吞噬对方的甜度苟活，早已变成怪物。</p>
+</article>
+</div>
+</div>
+<div class="lore-card faction-card rift-card">
+<div class="faction-head">
+<h2>中央地带 · 糖心裂谷 <small>Sugarheart Rift</small></h2>
+<p class="faction-climate">外观：从高空看，是一条蜒蜒的黑色裂缝，最宽处约五公里，最窄处只有几十米。裂缝边缘是焦糖色的岩壁，常年渗出滚烫的、冒泡的糖浆。</p>
+</div>
+<figure class="map-frame rift-frame">
+<img src="assets/rift.webp?v=35rk" alt="糖心裂谷地图" loading="lazy">
+<figcaption>糖心裂谷 · 中立交界地带</figcaption>
+</figure>
+<div class="region-grid">
+<article class="region">
+<h3>◈ 气味与幻觉</h3>
+<p>一股混合了焦糖、香草、烤坚果和轻微铁锈味的气体，吸入后会短暂产生幻觉——你可能看到已故的甜点亲友，或自己最深的恐惧。裂谷上方的空气里漂浮着<b>「糖晶尘」</b>，细小如沙的甜味结晶，吸入太多会产生「甜度幻觉」——误以为自己是全糖之心的一部分，从而产生跳入裂谷的冲动。</p>
+</article>
+<article class="region">
+<h3>◈ 液态梦境</h3>
+<p>裂谷底部不是熔岩，而是<b>「液态梦境」</b>——半透明、黏稠、会自己发光的糖浆液，温度极高。任何掉进去的甜点不会融化，而是被<b>「还原」</b>成最初的糖浆形态，失去记忆和人格。</p>
+</article>
+<article class="region">
+<h3>◈ 缓慢扩张</h3>
+<p>裂谷不是静止的。它在缓慢扩张，每年向两岸侵蚀约一厘米——百年前它只有现在三分之一宽。</p>
+</article>
+<article class="region">
+<h3>◈ 政治地位</h3>
+<p>根据<b>焦糖和约</b>，裂谷半径十公里内为「中立区」，双方不得进入。但实际上，两国都在偷偷建立前哨站。</p>
+</article>
+</div>
+</div>
+<div class="lore-card faction-card edge-card">
+<div class="faction-head">
+<h2>中立灰色地带 · 裂谷边缘城 <small>Rift Edge Town</small></h2>
+<p class="faction-climate">位于裂谷东岸的走私者聚集地，不受任何一方法律管辖。这里的建筑由各种「边角料」拼凑而成——半块华夫饼做墙，融化的棒棒糖做窗。</p>
+</div>
+<figure class="map-frame dark-frame">
+<img src="assets/edge.webp?v=35rk" alt="裂谷边缘城地图" loading="lazy">
+<figcaption>裂谷边缘城 · 中立灰色地带</figcaption>
+</figure>
+<div class="region-grid">
+<article class="region">
+<h3>◈ 居民与货币</h3>
+<p>居民成分复杂：逃兵、流放学者、梦想发大财的冒险家，以及不想选边站的普通甜点。这里流通的货币不是糖晶粒，而是<b>「情报」</b>。</p>
+</article>
+<article class="region">
+<h3>◈ 不成文的规矩</h3>
+<p>任何人不得在城内谈论<b>「全糖之心」</b>——因为上一任镇长就是公开宣称自己知道全糖之心下落，第二天早上被人发现变成了一块没有味道的硬糖，立在自己家门口。</p>
+</article>
+</div>
+</div>
+<div class="lore-card faction-card edge-card">
+<div class="faction-head">
+<h2>糖心研究院 <small>Sugarheart Institute</small></h2>
+<figure class="map-frame"><img src="assets/map-institute.webp?v=35rk" alt="糖心研究院" loading="lazy"></figure>
+</div>
+<div class="region-grid">
+<article class="region">
+<h3>◈ 建立背景</h3>
+<p>全糖之心碎裂第三年，位于裂谷边缘城以北的独立山丘，由硬糖块重建。作为两岸共同承认的中立学术组织，独立于蜜糖联邦与苦艾帝国（当时尚未分裂）。</p>
+</article>
+<article class="region">
+<h3>◈ 核心目标</h3>
+<p>收集碎片残骸、研究甜度衰减规律、防止世界因甜度失衡崩解。</p>
+</article>
+<article class="region">
+<h3>◈ 人员构成</h3>
+<p>巅峰时期约四十人，包括研究员、记录员、野外采集员以及若干编外辅助人员。核心成员有三位——首席学者苦糖·夜临，封印与后勤负责人白巧·埃德姆，野外执行员游医。冰糕当时是编外辅助人员之一，负责研究院后勤物资的转运登记，她见过碎片粉末进入活体之后的副作用——生长停滞、代谢锁定、面容固定在植入当年——所以后来在旧糖纸酒馆吧台后面看到一张四十年不变的脸时，她没有问任何问题。</p>
+</article>
+<article class="region">
+<h3>◈ 研究院的日常工作</h3>
+<p>· 碎片样本登记（来源、大小、甜度值）</p>
+<p>· 研究碎片间的"共鸣现象"</p>
+<p>· 记录甜度变化曲线并预测波动编外人员</p>
+<p>· 重新分类封存旧密封罐（埃德姆家族封印技术即源于此库存整理）</p>
+</article>
+<article class="region">
+<h3>◈ 分歧与分裂</h3>
+<p>· 白巧·埃德姆反对，认为碎片分散是自然状态，强制回收会扰动甜度平衡。</p>
+<p>· 游医未公开表态，但开始私下将碎片粉末混入土壤（非正式渠道，利用野外执行员身份）。</p>
+<p>· 公开冲突：草案提交第五年，苦糖·夜临发现游医行为，二人在旧档案室发生唯一一次公开争执。</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+<div class="world-pane" data-wpane="prop" hidden>
+<div class="pane-frame">
+
+<div class="lore-card prop-board">
+<h2><span class="h-orn">❖</span> 世界观道具 <span class="h-orn">❖</span></h2>
+
+<div class="prop-grid">
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-crystal.webp?v=35rk" alt="糖晶粒" loading="lazy"></div>
+<div class="prop-info">
+<h3>糖晶粒 · 通用货币</h3>
+<p>糖晶粒：半糖梦境的通用货币。米粒大小，颜色从浅白到深金不等，颜色越深含糖量越高，价值越大。边缘城流通的晶粒普遍偏白，奶霜高原的晶粒带淡蓝色光泽（因为当地空气湿度高）。布丁口袋里常年只有六七枚浅白色的，从来没有超过十枚。喵呜收糖晶粒的时候会先看颜色再收，浅白色的按一枚算，深金色的她看两眼才会放进去。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-butterfly.webp?v=35rk" alt="糖纸蝶" loading="lazy"></div>
+<div class="prop-info">
+<h3>糖纸蝶 · 通信</h3>
+<p>糖纸蝶：半糖梦境最普通的通信方式。用旧糖纸折成蝴蝶形状，在翅膀上写字，放飞后会顺着甜度气味找到收信人。折得越整齐飞得越远，但糖纸受潮或受热都会影响飞行——下雨天糖纸蝶飞不出去，冰糕的旧糖纸酒馆里每年夏天都有人抱怨"蝶到了对面就烂了"。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-notebook.webp?v=35rk" alt="旧糖纸本" loading="lazy"></div>
+<div class="prop-info">
+<h3>旧糖纸本 · 手帐</h3>
+<p>用废弃糖纸浆压制成的手帐本，吸墨不晕，适合用焦糖墨写字。春禾用来记花的生长数据，游医用来记碎片植入记录。旧糖纸本是耐放的东西，放几十年纸面只会轻微发黄，不会脆裂——因为糖纸浆里有天然的糖分残留，有一定的防潮性。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-cup.webp?v=35rk" alt="薄荷水杯" loading="lazy"></div>
+<div class="prop-info">
+<h3>薄荷水杯 · 冰糕自制</h3>
+<p>冰糕自制的饮用杯。她用自己身上的薄荷凉气凝出杯壁，倒温水进去会自然降温到适口温度，不凉不烫。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-lamp.webp?v=35rk" alt="糖浆灯" loading="lazy"></div>
+<div class="prop-info">
+<h3>糖浆灯 · 照明</h3>
+<p>用半盏糖浆和一根糖棉芯做成的简易照明。喵呜每天晚上关门后会在店门口台阶上放一盏，烧到天亮自动熄灭，第二天换新糖浆。糖浆灯的光是暖黄色的，不亮，只能照到门口一步远的地方，像一段路在夜里给自己留的一个脚印。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-pot.webp?v=35rk" alt="调香壶" loading="lazy"></div>
+<div class="prop-info">
+<h3>调香壶 · 黑巧甜心派</h3>
+<p>黑巧甜心派调配梦境液用的核心工具。壶体是半透明的浅色糖陶，壶盖与壶身严丝合缝，底部有一层极薄的隔热糖垫。壶嘴细而长，倒液体时可以控制到"滴"的量级。她的调香壶用了很多年，手柄底部有一道细细的裂纹，不影响使用，但她每次倒完液体会顺手擦一下那道裂纹的位置，像在确认它没有扩大。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-lens.webp?v=35rk" alt="冰糖放大镜" loading="lazy"></div>
+<div class="prop-info">
+<h3>冰糖放大镜 · 研究院旧物</h3>
+<p>研究院时期遗留下来的旧物。用一整块冰糖磨成的圆形凸透镜，握柄是焦糖料。黑巧甜心派在焙炼院的旧档案室里翻出来过一只，握柄上刻着一行极小的研究院编号。她把它收进了自己抽屉里，偶尔用来看旧糖纸上的小字。游医也有一枚，握柄上没有编号，是他自己磨的。</p>
+</div>
+</div>
+
+<div class="prop-card">
+<div class="prop-thumb"><img src="assets/prop-harp.webp?v=35rk" alt="银弦琴" loading="lazy"></div>
+<div class="prop-info">
+<h3>银弦琴 · 游医的旧琴</h3>
+<p>游医从研究院带走的那把旧琴，七根弦，琴身银白色。琴体是旧糖料混合了某种银灰色矿物制成的，不是糖，轻且冷，像一段被放凉了的金属。游医在雨夜会用一块深红色绒布擦掉琴面上的灰，弹一支十七个音的短曲。那把琴没有任何实用价值，不能换糖晶粒，不能做实验，不能送信。他只是留着它，用它弹一首别人都没有听过的调子。</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="world-pane" data-wpane="festival" hidden>
+<div class="pane-frame">
+
+<div class="lore-card faction-card wormwood">
+<div class="faction-head">
+<h2>❖ 泼糖节 ❖</h2>
+</div>
+<figure class="map-frame dark-frame"><img src="assets/fest-sugar.webp?v=35rk" alt="泼糖节" loading="lazy"></figure>
+<div class="faction-text">
+<h3>时间</h3>
+<p>每年盛夏最热的那天中午，裂谷边缘城的主街道上举行。</p>
+<h3>节日简介</h3>
+<p>裂谷边缘城每年盛夏最热的时候，主街上会有泼糖节。不是泼水，是泼糖——各家各户用煮好的稀糖浆互相泼。糖浆是温的，不烫，落地之后会慢慢凝固成一层薄薄的糖壳，整条街在节日结束后会覆盖一层半透明的浅棕色糖面，走上去微微粘脚。</p>
+<p>据说这个节日起源于边缘城早期居民夏季降温的习惯——把稀糖浆涂在墙壁和地面上，糖浆蒸发时会带走一部分热量，后来变成了夏天互相泼糖浆取乐的活动。泼糖节不区分阵营，联邦和帝国的人在这一天出现在同一条街上互相泼糖是允许的，边缘城的人不拦。</p>
+<figure class="map-frame dark-frame"><img src="assets/food-sugar.webp?v=35rk" alt="街边干糖粉" loading="lazy"></figure>
+<p><b>街边干糖粉：</b>泼糖节当天没有固定的传统食物——所有人都在泼糖，没有人停下来吃东西。唯一可以买到的是一整碗干糖粉放在街边摊上，抓一把撒出去，糖粉在热空气里会短暂地浮起来，像一层薄雾飘在泼糖的人群之间。
+</div>
+</div>
+
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>❖ 霜降日 ❖</h2>
+</div>
+<figure class="map-frame"><img src="assets/fest-frost.webp?v=35rk" alt="霜降日" loading="lazy"></figure>
+<div class="faction-text">
+<h3>时间</h3>
+<p>每年霜糖雪量最稳定的第三天，通常在冬季中段。</p>
+<h3>节日简介</h3>
+<p>奶霜高原的居民会起大早收集新落的糖霜雪，装在旧糖罐里送给亲友，寓意“把最轻的东西送给最重的人”。收到糖霜雪的人要在当天把它撒在自家门槛前，撒完之后当天不能扫，让那层薄雪自然化完——霜糖琉璃每年这天会在编织塔顶撒一大把糖霜雪进风里，让整个棉花糖镇飘一层极薄的糖霜雨，薄到落地就化，没有人察觉是人为的。</p>
+<p>布丁每年会收到一罐，放在窗台上忘了吃，第二年打开罐子发现霜已经化成水了，她照样留着那个罐子不扔。</p>
+<figure class="map-frame"><img src="assets/food-frost.webp?v=35rk" alt="糖霜糯米团" loading="lazy"></figure>
+<p><b>糖霜糯米团：</b>用新雪和糯米糖粉揉成的小团，不烤，直接吃，入口即化。
+</div>
+</div>
+
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>❖ 果冻海醒潮节 ❖</h2>
+</div>
+<figure class="map-frame"><img src="assets/fest-tide.webp?v=35rk" alt="果冻海醒潮节" loading="lazy"></figure>
+<div class="faction-text">
+<h3>时间</h3>
+<p>每年入春果冻海第一次大规模涨潮后的第一个满月夜。</p>
+<h3>节日简介</h3>
+<p>果冻海的弹性质感海面在入春时会有一周左右的“苏醒期”——海面比平时更有弹性，涨潮时能弹起一丈多高。沿岸居民和游客在这一天会聚集在海边，等满月升起后海面开始涨潮，当第一波大浪弹起来的时候，所有人一起踩进浅滩——被浪弹起来的人落回海面后会被接住，像踩在一张巨大的弹力床上。</p>
+<p>这个节日起源于旧时代海边渔村的习惯：入春第一波大潮意味着鱼群回来了，人们跳进海里是为了确认海水恢复了活力。后来变成了一种庆祝春天正式开始的游戏。布丁小时候被邻居家小孩拉着跳过一次，她落回海面时没站稳，整个人砸进海里呛了一口咸味的果冻海水。她后来再也没有跳过，但每年醒潮节她会在海边站一会儿。</p>
+<figure class="map-frame"><img src="assets/food-tide.webp?v=35rk" alt="酸味海藻糖" loading="lazy"></figure>
+<p><b>酸味海藻糖：</b>用果冻海沿岸的酸味海藻和焦糖蜜调成的硬糖，酸中带甜，咬开之后有气泡。
+</div>
+</div>
+
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>❖ 浆果灯节 ❖</h2>
+</div>
+<figure class="map-frame"><img src="assets/fest-berry.webp?v=35rk" alt="浆果灯节" loading="lazy"></figure>
+<div class="faction-text">
+<h3>时间</h3>
+<p>每年秋末太妃沼泽的浆果成熟季，成熟后的浆果会自然发光，持续大约七天。</p>
+<h3>节日简介</h3>
+<p>浆果成熟后，太妃沼泽边缘的居民会把成熟后脱落的发光浆果串成小串挂在门口和屋檐下，不为了照明，是为了让晚归的人能顺着光找到回家的方向。浆果的光不亮，像一层被稀释过的月光，挂在屋檐下的时候整条街的亮度和没挂之前几乎没有区别，但走夜路的人能看到那些光点——它们不高，不刺眼，像一排排小小的、不会发声的守夜人。</p>
+<p>这个节日的历史可以追溯到苦艾帝国建立之前，当时太妃沼泽边缘的小村庄会在秋末用浆果光标记村道的边界，防止夜行的人迷路走进沼泽深处。后来浆果灯变成了秋季的固定景观，不具宗教含义，也没有被帝国官方收编，只是每年秋末沼泽边缘的住户会自发地挂上一串。帝国议会没有正式承认过这个节日，也没有禁止过它。</p>
+<figure class="map-frame"><img src="assets/food-berry.webp?v=35rk" alt="浆果酱硬糖" loading="lazy"></figure>
+<p><b>浆果酱硬糖：</b>用发光浆果的果汁和焦糖蜜熬成的硬糖，含在嘴里会发出一丝微弱的光——含久了光会变暗，像糖在嘴里慢慢熄灭。
+</div>
+</div>
+
+<div class="lore-card faction-card honey">
+<div class="faction-head">
+<h2>❖ 发芽日 ❖</h2>
+</div>
+<figure class="map-frame"><img src="assets/fest-sprout.webp?v=35rk" alt="发芽日" loading="lazy"></figure>
+<div class="faction-text">
+<h3>时间</h3>
+<p>每年早春第一颗布丁苗破土的当天，日期不固定，由丘陵上第一颗布丁苗的出土时间决定。</p>
+<h3>节日简介</h3>
+<p>烤布丁丘陵的布丁们会守在各自划定的坡地上，等着第一颗新苗从土里冒出来。谁的地里先出苗，谁就负责那一年“开春仪式”——走到主坡顶上把那颗苗周围的土松开一圈，用掌心按一下，然后退一步让所有人看它。</p>
+<p>那一天的布丁苗比之后的苗更亮一些，像被所有人的目光多晒了一会儿。布丁每年会在自己种的坡地上等，但她的地从来不先出苗——她住的那间小屋所在的坡地，每年都是丘陵里最晚出苗的。她等了很多年也没有等到自己先出苗的那天，但她每年还是会蹲在那里等。</p>
+<figure class="map-frame"><img src="assets/food-sprout.webp?v=35rk" alt="焦糖脆壳饼" loading="lazy"></figure>
+<p><b>焦糖脆壳饼：</b>用上年秋天存下来的旧布丁壳磨碎后和面烤成的薄脆饼，寓意“旧壳碎了才能长出新苗”。
+</div>
+</div>
+
+</div>
+</div>
+<div class="world-pane" data-wpane="theme" hidden>
+<div class="pane-frame">
+<div class="lore-card lyric-card">
+<h2><span class="h-orn">♪</span> 奇妙半糖の少女心事 <span class="h-orn">♪</span></h2>
+<p class="lyric-credit">作词 / 作曲：霜糖</p>
+<div class="lyric-lines">
+<div class="lrc"><span class="jp">半糖の不思議少女心</span><span class="cn">奇妙半糖的少女心事</span></div>
+<div class="lrc"><span class="jp">甘く淡い恋の気持ち</span><span class="cn">清甜又带着微涩的恋慕心情</span></div>
+<div class="lrc"><span class="jp">お菓子屋の風に想い乗せ</span><span class="cn">将心意托付甜品店的微风</span></div>
+<div class="lrc"><span class="jp">そっと君へ届けたい</span><span class="cn">只想悄悄送到你的心底</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">マカロン並べレシピに名前</span><span class="cn">摆放马卡龙，在食谱写下你的姓名</span></div>
+<div class="lrc"><span class="jp">臆病な私消して書き直す</span><span class="cn">胆怯的我擦了一遍又一遍</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">満点の甘さじゃなくていい</span><span class="cn">不必拥有满份的甜也没关系</span></div>
+<div class="lrc"><span class="jp">この淡い恋大事にしたい</span><span class="cn">只想好好珍藏这份淡淡的爱恋</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">半糖のときめき</span><span class="cn">半分甜度的心动</span></div>
+<div class="lrc"><span class="jp">お菓子屋だけの秘密</span><span class="cn">只属于甜品小店的秘密</span></div>
+</div>
+</div>
+<div class="lore-card lyric-card lyric-dusk">
+<h2><span class="h-orn">♪</span> 虚幻半糖 · 儚いセミスイート <span class="h-orn">♪</span></h2>
+<p class="lyric-credit">作词 / 作曲：霜糖</p>
+<div class="lyric-lines">
+<div class="lrc"><span class="jp">夕闇が景色包んで</span><span class="cn">暮色笼罩整片风景</span></div>
+<div class="lrc"><span class="cn">回忆悠悠浮现心底</span></div>
+<div class="lrc"><span class="jp">楽しかった日々はもう</span><span class="cn">那些欢愉的旧日时光</span></div>
+<div class="lrc"><span class="jp">遠い雲のようだね</span><span class="cn">如同遥不可及的浮云</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">手を伸ばしても届かない</span><span class="cn">纵然伸出手也无法触碰</span></div>
+<div class="lrc"><span class="jp">時は静かに流れゆく</span><span class="cn">时光在寂静之中缓缓流逝</span></div>
+<div class="lrc"><span class="jp">涙こぼれても大丈夫</span><span class="cn">就算泪水悄然滑落也没关系</span></div>
+<div class="lrc"><span class="jp">心に刻んでおこう</span><span class="cn">将一切深深镌刻于心</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">儚いセミスイートの思い出</span><span class="cn">如梦似幻的半糖回忆</span></div>
+<div class="lrc"><span class="jp">笑い声が響いている</span><span class="cn">往日的笑声仍回荡耳畔</span></div>
+<div class="lrc"><span class="jp">別れは辛いけれど</span><span class="cn">纵使离别令人难过</span></div>
+<div class="lrc"><span class="jp">またいつか会えるのだろう</span><span class="cn">总有一天我们还会再相逢</span></div>
+<div class="lrc-gap"></div>
+<div class="lrc"><span class="jp">黄昏に溶けるように</span><span class="cn">仿佛消融在黄昏暮色里</span></div>
+<div class="lrc"><span class="jp">優しく夢が消えていく</span><span class="cn">梦境温柔地缓缓消散</span></div>
+<div class="lrc"><span class="jp">けれど忘れはしないよ</span><span class="cn">可是我绝不会将你遗忘</span></div>
+<div class="lrc"><span class="jp">この小さな奇跡を</span><span class="cn">这份渺小而珍贵的奇迹</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="panel" id="panel-song">
+<div class="panel-scroll">
+<div class="lore-card song-card">
+<h2><span class="h-orn">✦</span> 奇妙半糖梦境歌单 <span class="h-orn">✦</span></h2>
+<div class="song-grid">
+<button class="song-item" data-track="0">
+<div class="song-thumb">
+<img src="assets/song1.webp?v=35rk" alt="奇妙半糖的少女心事" loading="lazy">
+<span class="song-badge badge-rec">推荐</span>
+<span class="song-play">▶</span>
+</div>
+<div class="song-meta">
+<p class="song-title">奇妙半糖的少女心事</p>
+<p class="song-sub">主题曲 · 第一首</p>
+</div>
+</button>
+<button class="song-item" data-track="1">
+<div class="song-thumb">
+<img src="assets/song2.webp?v=35rk" alt="虚幻半糖" loading="lazy">
+<span class="song-play">▶</span>
+</div>
+<div class="song-meta">
+<p class="song-title">虚幻半糖</p>
+<p class="song-sub">主题曲 · 第二首</p>
+</div>
+</button>
+<button class="song-item" data-track="2">
+<div class="song-thumb">
+<img src="assets/song3.webp?v=35rk" alt="果冻之海" loading="lazy">
+<span class="song-badge badge-new">新歌</span>
+<span class="song-play">▶</span>
+</div>
+<div class="song-meta">
+<p class="song-title">果冻之海</p>
+<p class="song-sub">纯音乐 · 第三首</p>
+</div>
+</button>
+<button class="song-item" data-track="3">
+<div class="song-thumb">
+<img src="assets/song-tulips.webp?v=35rk" alt="Tulips Dreamland" loading="lazy">
+<span class="song-badge badge-new">新歌</span>
+<span class="song-play">▶</span>
+</div>
+<div class="song-meta">
+<p class="song-title">Tulips Dreamland</p>
+<p class="song-sub">印象曲 · 第四首</p>
+</div>
+</button>
+<button class="song-item" data-track="4">
+<div class="song-thumb">
+<img src="assets/song5.webp?v=35rk" alt="sweet dark chocolate sweet heart" loading="lazy">
+<span class="song-badge badge-new">新歌</span>
+<span class="song-play">▶</span>
+</div>
+<div class="song-meta">
+<p class="song-title long-title">Dark chocolate sweetheart</p>
+<p class="song-sub">角色CP曲 · 第五首</p>
+</div>
+</button>
+</div>
+<p class="song-note">献给四位藏着全糖之心碎片的人——半糖，也完整。</p>
+</div>
+</div>
+</section>
+<section class="panel" id="panel-character">
+<div class="panel-scroll">
+<div class="lore-card char-board">
+<h2><span class="h-orn">❀</span> 人物图鉴 <span class="h-orn">❀</span></h2>
+<p class="char-hint">轻触卡片，翻开人物介绍</p>
+<div class="char-grid">
+<button class="char-card tone-lav" data-char="pudding">
+<span class="card-window"><img src="assets/c-pudding.webp?v=35rk" alt="布丁" loading="lazy"></span>
+<span class="card-name">布丁</span>
+<span class="card-camp camp-honey">蜜糖联邦</span>
+</button>
+<button class="char-card tone-blue" data-char="frost">
+<span class="card-window"><img src="assets/c-frost.webp?v=35rk" alt="霜糖琉璃" loading="lazy"></span>
+<span class="card-name">霜糖琉璃</span>
+<span class="card-camp camp-honey">蜜糖联邦</span>
+</button>
+<button class="char-card tone-pink" data-char="darkchoc">
+<span class="card-window"><img src="assets/c-darkchoc.webp?v=35rk" alt="黑巧甜心派" loading="lazy"></span>
+<span class="card-name">黑巧甜心派</span>
+<span class="card-camp camp-worm">苦艾帝国</span>
+</button>
+<button class="char-card tone-lav" data-char="toffee">
+<span class="card-window"><img src="assets/c-toffee.webp?v=35rk" alt="太妃糖伯爵" loading="lazy"></span>
+<span class="card-name">太妃糖伯爵</span>
+<span class="card-camp camp-worm">苦艾帝国</span>
+</button>
+<button class="char-card tone-blue" data-char="jelly">
+<span class="card-window"><img src="assets/c-jelly.webp?v=35rk" alt="糖豆水母" loading="lazy"></span>
+<span class="card-name">糖豆水母</span>
+<span class="card-camp camp-honey">蜜糖联邦</span>
+</button>
+<button class="char-card tone-pink" data-char="kuka">
+<span class="card-window"><img src="assets/c-kuka.webp?v=35rk" alt="苦咖" loading="lazy"></span>
+<span class="card-name">苦咖</span>
+<span class="card-camp camp-worm">苦艾帝国</span>
+</button>
+<button class="char-card tone-mint" data-char="matcha">
+<span class="card-window"><img src="assets/c-matcha.webp?v=35rk" alt="抹茶喵呜" loading="lazy"></span>
+<span class="card-name">抹茶喵呜</span>
+<span class="card-camp camp-honey">蜜糖联邦</span>
+</button>
+<button class="char-card tone-ice" data-char="binggao">
+<span class="card-window"><img src="assets/c-binggao.webp?v=35rk" alt="冰糕" loading="lazy"></span>
+<span class="card-name">冰糕</span>
+<span class="card-camp camp-neutral">中立</span>
+</button>
+<button class="char-card tone-mint" data-char="yeying">
+<span class="card-window"><img src="assets/c-yeying.webp?v=35rk" alt="夜莺" loading="lazy"></span>
+<span class="card-name">夜莺</span>
+<span class="card-camp camp-neutral">中立</span>
+</button>
+<button class="char-card tone-lav" data-char="baichoco">
+<span class="card-window"><img src="assets/c-baichoco.webp?v=35rk" alt="白巧·埃德姆" loading="lazy"></span>
+<span class="card-name">白巧·埃德姆</span>
+<span class="card-camp camp-worm">苦艾帝国</span>
+</button>
+<button class="char-card tone-ice" data-char="saltmint">
+<span class="card-window"><img src="assets/c-saltmint.webp?v=35rk" alt="海盐薄荷" loading="lazy"></span>
+<span class="card-name">海盐薄荷</span>
+<span class="card-camp camp-rift">糖心裂谷</span>
+</button>
+<button class="char-card tone-blue" data-char="shuangtang">
+<span class="card-window"><img src="assets/c-shuangtang.webp?v=35rk" alt="霜糖" loading="lazy"></span>
+<span class="card-name">霜糖</span>
+<span class="card-camp camp-creator">创作者</span>
+</button>
+<button class="char-card tone-pink" data-char="kutang">
+<span class="card-window"><img src="assets/c-kutang.webp?v=35rk" alt="苦糖·夜临" loading="lazy"></span>
+<span class="card-name">苦糖·夜临</span>
+<span class="card-camp camp-worm">苦艾帝国</span>
+</button>
+<button class="char-card tone-mint" data-char="chunhe">
+<span class="card-window"><img src="assets/c-chunhe.webp?v=35rk" alt="春禾" loading="lazy"></span>
+<span class="card-name">春禾</span>
+<span class="card-camp camp-neutral">中立</span>
+</button>
+<button class="char-card tone-pink" data-char="lilith">
+<span class="card-window"><img src="assets/c-lilith.webp?v=35rk" alt="莉莉丝" loading="lazy"></span>
+<span class="card-name">莉莉丝</span>
+<span class="card-camp camp-neutral">中立</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="panel" id="panel-comic">
+<div class="panel-scroll">
+<div class="lore-card comic-board">
+<h2><span class="h-orn">✦</span> 漫画 <span class="h-orn">✦</span></h2>
+<p class="char-hint">轻触，阅读漫画</p>
+<div class="comic-shelf">
+<button class="comic-vol" data-comic="maincomic">
+<span class="vol-cover"><img src="assets/comic-main-cover.webp?v=35rk" alt="主线漫画封面" loading="lazy"><span class="vol-badge badge-hot">热漫</span></span>
+<span class="vol-tag tag-main">主线连载</span>
+<span class="vol-name">奇妙半糖梦境主线漫画</span>
+<span class="vol-count">全 5 章</span>
+</button>
+<button class="comic-vol" data-comic="main">
+<span class="vol-cover"><img src="assets/m-cover.webp?v=35rk" alt="日常漫画封面" loading="lazy"><span class="vol-badge badge-rec">推荐</span></span>
+<span class="vol-tag tag-daily">日常故事</span>
+<span class="vol-name">奇妙半糖梦境成员日常</span>
+<span class="vol-count">全 8 集</span>
+</button>
+<div class="comic-vol is-locked">
+<span class="vol-cover"><img src="assets/sx-cover.webp?v=35rk" alt="霜糖穿越到铃芽之旅" loading="lazy"></span>
+<span class="vol-tag tag-wait">待解锁</span>
+<span class="vol-name">霜糖穿越到铃芽之旅</span>
+<span class="vol-count">全 2 页</span>
+</div>
+<div class="comic-vol is-locked">
+<span class="vol-cover"><img src="assets/hl-cover.webp?v=35rk" alt="黑巧甜心派穿越到哈尔的移动城堡" loading="lazy"></span>
+<span class="vol-tag tag-wait">待解锁</span>
+<span class="vol-name">黑巧甜心派穿越到哈尔的移动城堡</span>
+<span class="vol-count">全 3 页</span>
+</div>
+<div class="comic-vol is-locked">
+<span class="vol-cover"><img src="assets/qq-cover.webp?v=35rk" alt="黑巧甜心派穿越到千与千寻" loading="lazy"></span>
+<span class="vol-tag tag-wait">待解锁</span>
+<span class="vol-name">黑巧甜心派穿越到千与千寻</span>
+<span class="vol-count">全 4 页</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="panel" id="panel-game">
+<div class="panel-scroll">
+<div class="lore-card game-card">
+<h2><span class="h-orn">✦</span> 小游戏 · 半糖乐园 <span class="h-orn">✦</span></h2>
+<div class="game-grid">
+<button class="game-item" data-game="candybounce">
+<div class="game-thumb">
+<img src="assets/game-candybounce.webp?v=35rk" alt="糖果弹弹跳" loading="lazy">
+<span class="game-badge badge-new">新游</span>
+<span class="game-play-hover">▶ 开始游戏</span>
+</div>
+<div class="game-meta">
+<p class="game-title">糖果弹弹跳</p>
+<p class="game-sub">Candy Bounce</p>
+</div>
+</button>
+<button class="game-item" data-game="dressup">
+<div class="game-thumb">
+<img src="assets/game-dressup.webp?v=35rk" alt="换装小游戏" loading="lazy">
+<span class="game-badge badge-rec">推荐</span>
+<span class="game-play-hover">▶ 开始游戏</span>
+</div>
+<div class="game-meta">
+<p class="game-title">换装小游戏</p>
+<p class="game-sub">给布丁搭配甜美造型</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="panel" id="panel-anime">
+<div class="panel-scroll">
+<div class="lore-card anime-card">
+<h2><span class="h-orn">✦</span> 动画 <span class="h-orn">✦</span></h2>
+<div class="anime-tabs">
+<button class="anime-tab is-active" data-tab="episodes">动画</button>
+<button class="anime-tab" data-tab="pv">角色PV</button>
+</div>
+<div class="anime-content" id="anime-episodes">
+<div class="anime-grid">
+<button class="anime-item" data-video="sugarfest">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-sugarfest.webp?v=35rk" alt="棉花糖镇泼糖节" loading="lazy">
+<span class="anime-badge badge-new">新番</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半塘梦境】棉花糖镇泼糖节</p>
+</button>
+<button class="anime-item" data-video="tart">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-tart.webp?v=35rk" alt="霜糖琉璃教你做蛋挞" loading="lazy">
+<span class="anime-badge badge-new">新番</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】霜糖琉璃教你做蛋挞</p>
+</button>
+<button class="anime-item" data-video="qixi">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-qixi.webp?v=35rk" alt="七夕的悸动" loading="lazy">
+<span class="anime-badge badge-hot">热播</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】七夕的悸动</p>
+</button>
+<button class="anime-item" data-video="dessert">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-dessert.webp?v=35rk" alt="甜点大赛" loading="lazy">
+<span class="anime-badge badge-hot">热播</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】甜点大赛谁能摘得桂冠</p>
+</button>
+<button class="anime-item" data-video="baking">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-baking.webp?v=35rk" alt="烤饼干记" loading="lazy">
+<span class="anime-badge badge-rec">推荐</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】烤饼干记</p>
+</button>
+<button class="anime-item" data-video="wash">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-wash.webp?v=35rk" alt="喵呜甜品店洗碗记" loading="lazy">
+<span class="anime-badge badge-rec">推荐</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】喵呜甜品店洗碗记</p>
+</button>
+<button class="anime-item" data-video="kitchen">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-kitchen.webp?v=35rk" alt="厨房的一场小意外" loading="lazy">
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境】厨房的一场小意外</p>
+</button>
+<button class="anime-item" data-video="pudding">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-pudding.webp?v=35rk" alt="布丁烤饼干记" loading="lazy">
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【奇妙半糖梦境厨房】布丁烤饼干记</p>
+</button>
+<button class="anime-item" data-video="heiqiao2">
+<div class="anime-thumb is-landscape">
+<img src="assets/anim-heiqiao2.webp?v=35rk" alt="黑巧甜心派从未正视自己的内心" loading="lazy">
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【苦艾帝国】黑巧甜心派从未正视自己的内心</p>
+</button>
+</div>
+</div>
+<div class="anime-content" id="anime-pv" hidden>
+<div class="anime-grid">
+<button class="anime-item" data-video="past">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-past.webp?v=35rk" alt="遗忘的过去，执念的引路人" loading="lazy">
+<span class="anime-badge badge-rec">推荐</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">海盐薄荷角色pv</p>
+</button>
+<button class="anime-item" data-video="heiqiao">
+<div class="anime-thumb is-portrait">
+<img src="assets/anim-heiqiao.webp?v=35rk" alt="黑巧甜心派" loading="lazy">
+<span class="anime-badge badge-rec">推荐</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【苦艾帝国】黑巧甜心派角色PV</p>
+</button>
+<button class="anime-item" data-video="kutang">
+<div class="anime-thumb is-landscape">
+<img src="assets/anim-kutang.webp?v=35rk" alt="苦糖夜临" loading="lazy">
+<span class="anime-badge badge-rec">推荐</span>
+<span class="anime-play">▶</span>
+</div>
+<p class="anime-title">【苦艾帝国反派】苦糖·夜临角色PV</p>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<audio id="bgm" src="" loop preload="auto"></audio>
+<button id="bgm-toggle" type="button" aria-label="背景音乐开关" title="背景音乐">♪</button>
+<div id="pet" role="button" aria-label="桌宠 霜糖琉璃">
+<div class="pet-bubble" id="pet-bubble" hidden></div>
+<img id="pet-img" src="assets/pet1.webp?v=35rk" alt="霜糖琉璃" draggable="false">
+</div>
+</div>
+<div id="char-modal" hidden>
+<div class="modal-veil"></div>
+<div class="modal-frame">
+<button class="modal-close" aria-label="关闭">✕</button>
+<div class="modal-body">
+<div class="modal-sheet">
+<div class="sheet-orn">✦ 人 物 介 绍 ✦</div>
+<div class="sheet-top">
+<div class="modal-art">
+<img id="m-img" src="" alt="">
+<div id="m-sil" class="modal-sil" hidden>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.4" r="3.4"/><path d="M5.6 20 C6.2 15.8 8.6 13.9 12 13.9 C15.4 13.9 17.8 15.8 18.4 20"/></svg>
+<i>立绘 · 封存中</i>
+</div>
+</div>
+<div class="sheet-info">
+<h3 id="m-name"></h3>
+<div class="sheet-rows">
+<p><b>世界观</b><span id="m-world"></span></p>
+<p><b>年龄</b><span id="m-age"></span></p>
+<p><b>身份</b><span id="m-role"></span></p>
+<p><b>性格</b><span id="m-nature"></span></p>
+<p><b>兴趣</b><span id="m-hobby"></span></p>
+</div>
+</div>
+</div>
+<div class="sheet-divider"></div>
+<p class="sheet-bio" id="m-bio"></p>
+<div class="sheet-foot">─ The Wonder Half-Sugar Dreamland ─</div>
+</div>
+</div>
+</div>
+</div>
+<div class="game-fullscreen" id="game-fullscreen" hidden>
+<button class="back-btn game-back" id="game-fs-close" aria-label="返回主页"></button>
+<iframe id="game-iframe" src="" allow="autoplay; fullscreen" loading="lazy" title="换装小游戏"></iframe>
+</div>
+<div id="comic-modal" hidden>
+<div class="reader-veil"></div>
+<div class="reader-frame">
+<header class="reader-head">
+<h3 id="r-title"></h3>
+<button class="back-btn reader-back" aria-label="返回"></button>
+</header>
+<div class="reader-chapters" id="r-chapters" hidden></div>
+<div class="reader-stage" id="r-stage"><div id="r-img" role="img" aria-label="漫画页"></div></div>
+<footer class="reader-foot">
+<button id="r-prev" class="pg-btn" type="button" aria-label="上一页">◀ 上一页</button>
+<span id="r-ind" class="pg-ind"></span>
+<button id="r-next" class="pg-btn" type="button" aria-label="下一页">下一页 ▶</button>
+</footer>
+</div>
+</div>
+<div class="video-modal" id="video-modal">
+<div class="video-modal-content">
+<button class="back-btn video-back" aria-label="返回"></button>
+<video id="modal-video" controls playsinline></video>
+</div>
+</div>
+<script src="bgm-data.js?v=35rk" type="text/javascript"></script>
+<script src="topic-sdk.js?v=35rk" type="text/javascript"></script>
+<script src="backstack.js?v=35rk" type="text/javascript"></script>
+<script src="app.js?v=35rk" type="text/javascript"></script>
+<script src="chars.js?v=35rk" type="text/javascript"></script>
+<script src="atlas-map.js?v=35rk" type="text/javascript"></script>
+<script src="comic.js?v=35rk" type="text/javascript"></script>
+<script src="pet.js?v=35rk" type="text/javascript"></script>
+<script type="text/javascript">
+/* hls.js 按需加载：首次播放 .m3u8 前才拉 413KB，不占首屏 */
+(function(){
+  var loaded=false,pending=[];
+  window.__ensureHls=function(cb){
+    if(window.Hls){cb&&cb();return;}
+    pending.push(cb);
+    if(loaded)return;loaded=true;
+    var s=document.createElement('script');s.src='hls.min.js';
+    s.onload=function(){pending.splice(0).forEach(function(f){try{f()}catch(e){}})};
+    s.onerror=function(){pending.splice(0).forEach(function(f){try{f()}catch(e){}})};
+    document.head.appendChild(s);
+  };
+})();
+</script>
+</body>
+</html>
